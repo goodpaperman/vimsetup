@@ -1,7 +1,8 @@
 # vimsetup
-setup vim in new environment in one click
+setup vim for new environment in one click
 
 Usage:
+
 git clone git@github.com:goodpaperman/vimsetup.git
 cd vimsetup
 ./setup.sh
