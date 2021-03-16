@@ -28,4 +28,4 @@ brew install cscope
 # cscope -Rbqk
 #brew install ctags
 
-echo "remember to change /path/to/project/root/dir/ in ~/.vimrc !!"
+echo "remember to export CSCOPE_ROOT=/path/to/project/root/dir/ in ~/.bash_profile !!"
