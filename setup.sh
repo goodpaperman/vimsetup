@@ -1,21 +1,31 @@
 #! /bin/sh
-brew install cscope
-# cscope -Rbqk
-#brew install ctags
+
+mkdir vimsetup
+cd vimsetup
+
+curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/cscope_maps.vim
+curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/vimrc
+curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/postfix.sh
+curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/postfix_stat.sh
+curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/csmake.sh
 
 mkdir -p ~/.vim/plugin/
 if [ ! -f ~/.vim/plugin/cscope_maps.vim ]; then 
-    cp cscope_maps.vim ~/.vim/plugin/
+    mv ./cscope_maps.vim ~/.vim/plugin/
 else
     echo "appending key maps into vim"
-    cat cscope_maps.vim >> ~/.vim/plugin/cscope_maps.vim
+    cat ./cscope_maps.vim >> ~/.vim/plugin/cscope_maps.vim
 fi
 
 if [ ! -f ~/.vimrc ]; then 
-    cp vimrc ~/.vimrc
+    mv ./vimrc ~/.vimrc
 else
     echo "appending settings into vim"
-    cat vimrc >> ~/.vimrc
+    cat ./vimrc >> ~/.vimrc
 fi
+
+brew install cscope
+# cscope -Rbqk
+#brew install ctags
 
 echo "remember to change /path/to/project/root/dir/ in ~/.vimrc !!"
