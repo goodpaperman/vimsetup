@@ -162,4 +162,7 @@ if has("cscope")
 
 endif
 
-
+nmap    w=  :resize +3<CR>
+nmap    w-  :resize -3<CR>
+nmap    w,  :vertical resize -3<CR>
+nmap    w.  :vertical resize +3<CR>
