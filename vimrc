@@ -14,7 +14,7 @@ set showcmd
 filetype plugin indent on " 开启插件
 set backupcopy=yes " 设置备份时的行为为覆盖
 set ignorecase smartcase " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
-set nowrapscan " 禁止在搜索到文件两端时重新搜索
+"set nowrapscan " 禁止在搜索到文件两端时重新搜索
 set incsearch " 输入搜索内容时就显示搜索结果
 set hlsearch " 搜索时高亮显示被找到的文本
 set noerrorbells " 关闭错误信息响铃
@@ -31,7 +31,26 @@ set backspace=indent,eol,start
 " 不设定在插入状态无法用退格键和 Delete 键删除回车符
 set cmdheight=1 " 设定命令行的行数为 1
 set laststatus=2 " 显示状态栏 (默认值为 1, 无法显示状态栏)
-set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
+"set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
+
+" 设置状态行显示常用信息
+" %F 完整文件路径名
+" %m 当前缓冲被修改标记
+" %m 当前缓冲只读标记
+" %h 帮助缓冲标记
+" %w 预览缓冲标记
+" %Y 文件类型
+" %b ASCII值
+" %B 十六进制值
+" %l 行数
+" %v 列数
+" %p 当前行数占总行数的的百分比
+" %L 总行数
+" %{...} 评估表达式的值，并用值代替
+" %{"[fenc=".(&fenc==""?&enc:&fenc).((exists("+bomb") && &bomb)?"+":"")."]"} 显示文件编码
+" %{&ff} 显示文件类型
+"set statusline=%F%m%r%h%w%=\ [ft=%Y]\ %{\"[fenc=\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\"+\":\"\").\"]\"}\ [ff=%{&ff}]\ [asc=%03.3b]\ [hex=%02.2B]\ [pos=%04l,%04v][%p%%]\ [len=%L]
+set statusline=\ %<%F\ [%p%%]
 " 设置在状态行显示的信息
 " set foldenable " 开始折叠
 " set foldmethod=syntax " 设置语法折叠
@@ -41,4 +60,6 @@ set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:
 " nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " 用空格键来开关折叠
 
+" set cscopequickfix=s-,c-,d-,i-,t-,e-,g- 
+set cscopepathcomp=1  " show file name only
 cscope add $CSCOPE_ROOT
