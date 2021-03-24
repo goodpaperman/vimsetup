@@ -18,6 +18,9 @@ else
     cat ./cscope_maps.vim >> ~/.vim/plugin/cscope_maps.vim
 fi
 
+# include us
+echo "source ~/.vim4cscope" >> vimrc
+
 if [ ! -f ~/.vimrc ]; then 
     mv ./vimrc ~/.vimrc
 else

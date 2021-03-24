@@ -60,4 +60,3 @@ set statusline=\ %<%F\ [%p%%]
 " nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " 用空格键来开关折叠
 
-source ~/.vim4cscope
