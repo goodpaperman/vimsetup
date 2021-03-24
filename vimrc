@@ -60,6 +60,4 @@ set statusline=\ %<%F\ [%p%%]
 " nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " 用空格键来开关折叠
 
-" set cscopequickfix=s-,c-,d-,i-,t-,e-,g- 
-set cscopepathcomp=1  " show file name only
-cscope add $CSCOPE_ROOT
+source .vim4cscope

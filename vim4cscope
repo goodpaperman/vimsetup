@@ -1,0 +1,3 @@
+" set cscopequickfix=s-,c-,d-,i-,t-,e-,g- 
+set cscopepathcomp=1  " show file name only
+cscope add $CSCOPE_ROOT
