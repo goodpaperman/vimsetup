@@ -4,6 +4,7 @@ mkdir vimsetup
 cd vimsetup
 
 curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/cscope_maps.vim
+curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/vimex.vim
 curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/vimrc
 curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/vim4cscope
 curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/postfix.sh
@@ -14,8 +15,15 @@ mkdir -p ~/.vim/plugin/
 if [ ! -f ~/.vim/plugin/cscope_maps.vim ]; then 
     mv ./cscope_maps.vim ~/.vim/plugin/
 else
-    echo "appending key maps into vim"
+    echo "appending cscope key maps into vim"
     cat ./cscope_maps.vim >> ~/.vim/plugin/cscope_maps.vim
+fi
+
+if [ ! -f ~/.vim/plugin/vimex.vim ]; then 
+    mv ./vimex.vim ~/.vim/plugin/
+else
+    echo "appending vimex key maps into vim"
+    cat ./vimex.vim >> ~/.vim/plugin/vimex.vim
 fi
 
 # include us
