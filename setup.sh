@@ -5,6 +5,7 @@ cd vimsetup
 
 curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/cscope_maps.vim
 curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/vimrc
+curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/vim4cscope
 curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/postfix.sh
 curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/postfix_stat.sh
 curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/csmake.sh
@@ -22,6 +23,13 @@ if [ ! -f ~/.vimrc ]; then
 else
     echo "appending settings into vim"
     cat ./vimrc >> ~/.vimrc
+fi
+
+if [ ! -f ~/.vim4cscope ]; then 
+    mv ./vim4cscope ~/.vim4cscope
+else
+    echo "cover settings into vim4cscope"
+    cat ./vim4cscope >> ~/.vim4cscope
 fi
 
 brew install cscope
