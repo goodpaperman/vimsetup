@@ -43,7 +43,25 @@ else
     cat ./vim4cscope >> ~/.vim4cscope
 fi
 
-brew install cscope
+type cscope
+if [ $? -ne 0 ]; then 
+    # cscope not exist, try installing...
+    type brew
+    if [ $? -eq 0 ]; then 
+        brew install cscope
+    fi 
+    
+    type apt
+    if [ $? -eq 0 ]; then 
+        apt install cscope
+    fi 
+    
+    type yum
+    if [ $? -eq 0 ]; then 
+        yum install cscope
+    fi 
+fi
+
 # cscope -Rbqk
 #brew install ctags
 
