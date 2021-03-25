@@ -3,13 +3,13 @@
 mkdir vimsetup
 cd vimsetup
 
-curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/cscope_maps.vim
-curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/vimex.vim
-curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/vimrc
-curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/vim4cscope
-curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/postfix.sh
-curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/postfix_stat.sh
-curl -fsSL https://github.com/goodpaperman/vimsetup/blob/main/csmake.sh
+curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
+curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
+#curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/postfix.sh
+#curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/postfix_stat.sh
+curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
 
 mkdir -p ~/.vim/plugin/
 if [ ! -f ~/.vim/plugin/cscope_maps.vim ]; then 
@@ -45,7 +45,7 @@ fi
 
 type cscope
 if [ $? -ne 0 ]; then 
-    # cscope not exist, try installing...
+    echo "cscope not exist, try installing..."
     type brew
     if [ $? -eq 0 ]; then 
         brew install cscope
