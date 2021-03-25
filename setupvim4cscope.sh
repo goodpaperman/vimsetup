@@ -3,13 +3,19 @@
 mkdir vimsetup
 cd vimsetup
 
-curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
-curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
-curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
-curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
-#curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/postfix.sh
-#curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/postfix_stat.sh
-curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
+#curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
+#curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+#curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+#curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
+##curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/postfix.sh
+##curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/postfix_stat.sh
+#curl -fsSL https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
+
+wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
+wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
+wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
 
 mkdir -p ~/.vim/plugin/
 if [ ! -f ~/.vim/plugin/cscope_maps.vim ]; then 
