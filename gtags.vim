@@ -581,14 +581,21 @@ if g:Gtags_Auto_Update == 1
 endif
 " Suggested map:
 if g:Gtags_Auto_Map == 1
-	:nmap <F2> :copen<CR>
-	:nmap <F4> :cclose<CR>
-	:nmap <F5> :Gtags<SPACE>
-	:nmap <F6> :Gtags -f %<CR>
-	:nmap <F7> :GtagsCursor<CR>
-	:nmap <F8> :Gozilla<CR>
+"	:nmap <F2> :copen<CR>
+"	:nmap <F4> :cclose<CR>
+"	:nmap <F5> :Gtags<SPACE>
+"	:nmap <F6> :Gtags -f %<CR>
+"	:nmap <F7> :GtagsCursor<CR>
+"	:nmap <F8> :Gozilla<CR>
 	:nmap <C-n> :cn<CR>
 	:nmap <C-p> :cp<CR>
-	:nmap <C-\><C-]> :GtagsCursor<CR>
+"	:nmap <C-\><C-]> :GtagsCursor<CR>
+
+"gtags keys should try to differ with cscope keys like +s +t +c +t +e +f +i +a
+    :nmap <C-\>d :Gtags -d <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-\>r :Gtags -r <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-\>g :Gtags -g <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-\>f :Gtags -f %<CR><CR>
+    :nmap <C-\>c :GtagsCursor<CR>
 endif
 let loaded_gtags = 1

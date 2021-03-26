@@ -4,7 +4,7 @@ mkdir vimsetup
 cd vimsetup
 
 wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
-wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags-cscope.vim
+#wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags-cscope.vim
 wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
 wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
 wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
@@ -17,12 +17,12 @@ else
     cat ./gtags.vim >> ~/.vim/plugin/gtags.vim
 fi
 
-if [ ! -f ~/.vim/plugin/gtags-cscope.vim ]; then 
-    mv ./gtags-cscope.vim ~/.vim/plugin/
-else
-    echo "appending gtags-cscope key maps into vim"
-    cat ./gtags-cscope.vim >> ~/.vim/plugin/gtags-cscope.vim
-fi
+#if [ ! -f ~/.vim/plugin/gtags-cscope.vim ]; then 
+#    mv ./gtags-cscope.vim ~/.vim/plugin/
+#else
+#    echo "appending gtags-cscope key maps into vim"
+#    cat ./gtags-cscope.vim >> ~/.vim/plugin/gtags-cscope.vim
+#fi
 
 if [ ! -f ~/.vim/plugin/vimex.vim ]; then 
     mv ./vimex.vim ~/.vim/plugin/
