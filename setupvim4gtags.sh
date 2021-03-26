@@ -48,7 +48,10 @@ else
     cat ./vim4gtags >> ~/.vim4gtags
 fi
 
-function version_le() { str=$(echo "$@" | tr " " "\n" | sort -V | head -n 1); test "$str" == "$1"; }
+# dash choked on 
+#   keyword: function -> null
+#   string compare: == -> =
+version_le() { str="$(echo $@ | tr ' ' '\n' | sort -V | head -n 1)"; test "$str" = "$1"; }
 
 type global > /dev/null
 if [ $? -ne 0 ]; then 
@@ -69,7 +72,7 @@ if [ $? -ne 0 ]; then
     fi
 else
     # global - GNU GLOBAL 5.7.1
-    ver=$(global --version | head -n 1)
+    ver="$(global --version | head -n 1)"
     # 5.7.1
     ver=${ver##* }
     #if [ "$ver" < "6.6.5" ]; then 
