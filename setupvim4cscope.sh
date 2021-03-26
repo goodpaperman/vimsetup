@@ -49,23 +49,23 @@ else
     cat ./vim4cscope >> ~/.vim4cscope
 fi
 
-type cscope
+type cscope > /dev/null
 if [ $? -ne 0 ]; then 
     echo "cscope not exist, try installing..."
-    type brew
+    type brew > /dev/null
     if [ $? -eq 0 ]; then 
         brew install cscope
-    fi 
-    
-    type apt
-    if [ $? -eq 0 ]; then 
-        apt install cscope
-    fi 
-    
-    type yum
-    if [ $? -eq 0 ]; then 
-        yum install cscope
-    fi 
+    else 
+        type apt > /dev/null
+        if [ $? -eq 0 ]; then 
+            apt install cscope
+        else
+            type yum > /dev/null
+            if [ $? -eq 0 ]; then 
+                yum install cscope
+            fi 
+        fi
+    fi
 fi
 
 # cscope -Rbqk

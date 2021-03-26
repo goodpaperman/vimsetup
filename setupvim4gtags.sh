@@ -3,16 +3,25 @@
 mkdir vimsetup
 cd vimsetup
 
+wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
+wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags-cscope.vim
 wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
 wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
 wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
 
 mkdir -p ~/.vim/plugin/
-if [ ! -f ~/.vim/plugin/cscope_maps.vim ]; then 
-    mv ./cscope_maps.vim ~/.vim/plugin/
+if [ ! -f ~/.vim/plugin/gtags.vim ]; then 
+    mv ./gtags.vim ~/.vim/plugin/
 else
-    echo "appending cscope key maps into vim"
-    cat ./cscope_maps.vim >> ~/.vim/plugin/cscope_maps.vim
+    echo "appending gtags key maps into vim"
+    cat ./gtags.vim >> ~/.vim/plugin/gtags.vim
+fi
+
+if [ ! -f ~/.vim/plugin/gtags-cscope.vim ]; then 
+    mv ./gtags-cscope.vim ~/.vim/plugin/
+else
+    echo "appending gtags-cscope key maps into vim"
+    cat ./gtags-cscope.vim >> ~/.vim/plugin/gtags-cscope.vim
 fi
 
 if [ ! -f ~/.vim/plugin/vimex.vim ]; then 
@@ -39,18 +48,18 @@ else
     cat ./vim4gtags >> ~/.vim4gtags
 fi
 
-type global
+type global > /dev/null
 if [ $? -ne 0 ]; then 
     echo "global not exist, try installing..."
-    type brew
+    type brew > /dev/null
     if [ $? -eq 0 ]; then 
         brew install global
     else 
-        type apt
+        type apt > /dev/null
         if [ $? -eq 0 ]; then 
             apt install global
         else
-            type yum
+            type yum > /dev/null
             if [ $? -eq 0 ]; then 
                 yum install global
             fi 
