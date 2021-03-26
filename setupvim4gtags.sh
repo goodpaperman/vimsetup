@@ -48,7 +48,7 @@ else
     cat ./vim4gtags >> ~/.vim4gtags
 fi
 
-function version_le() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" == "$1"; }
+function version_le() { str=$(echo "$@" | tr " " "\n" | sort -V | head -n 1); test "$str" == "$1"; }
 
 type global > /dev/null
 if [ $? -ne 0 ]; then 
@@ -73,7 +73,7 @@ else
     # 5.7.1
     ver=${ver##* }
     #if [ "$ver" < "6.6.5" ]; then 
-    if version_le "$ver" "6.6.5"; then 
+    if ! version_le "6.6.5" "$ver"; then 
         echo "global version $ver is too low, 6.6.5 at least"
     fi 
 fi
