@@ -48,6 +48,8 @@ else
     cat ./vim4gtags >> ~/.vim4gtags
 fi
 
+function version_le() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" == "$1"; }
+
 type global > /dev/null
 if [ $? -ne 0 ]; then 
     echo "global not exist, try installing..."
@@ -65,6 +67,15 @@ if [ $? -ne 0 ]; then
             fi 
         fi
     fi
+else
+    # global - GNU GLOBAL 5.7.1
+    ver=$(global --version | head -n 1)
+    # 5.7.1
+    ver=${ver##* }
+    #if [ "$ver" < "6.6.5" ]; then 
+    if version_le "$ver" "6.6.5"; then 
+        echo "global version $ver is too low, 6.6.5 at least"
+    fi 
 fi
 
 # gtags 
