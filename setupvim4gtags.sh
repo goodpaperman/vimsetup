@@ -3,11 +3,11 @@
 mkdir vimsetup
 cd vimsetup
 
-wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
-#wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags-cscope.vim
-wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
-wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
-wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
+curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
+#curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags-cscope.vim
+curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
 
 mkdir -p ~/.vim/plugin/
 if [ ! -f ~/.vim/plugin/gtags.vim ]; then 
