@@ -1,51 +1,67 @@
 #! /bin/sh
 
-mkdir vimsetup
-cd vimsetup
+mkdir setuptmp
+cd setuptmp
 
-curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
+if [ ! -f ../gtags.vim ]; then 
+    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
+else 
+    cp ../gtags.vim ./
+fi 
+
 #curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags-cscope.vim
-curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
-curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
-curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
+
+if [ ! -f ../vimex.vim ]; then 
+    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+else
+    cp ../vimex.vim ./
+fi 
+
+if [ ! -f ../vimrc ]; then 
+    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+else
+    cp ../vimrc ./
+fi
+
+if [ ! -f ../vim4gtags ]; then 
+    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
+else
+    cp ../vim4gtags ./
+fi
 
 mkdir -p ~/.vim/plugin/
 if [ ! -f ~/.vim/plugin/gtags.vim ]; then 
-    mv ./gtags.vim ~/.vim/plugin/
+    cp ./gtags.vim ~/.vim/plugin/
 else
-    echo "appending gtags key maps into vim"
-    cat ./gtags.vim >> ~/.vim/plugin/gtags.vim
+    echo "has gtags.vim, nothing to do"
 fi
 
 #if [ ! -f ~/.vim/plugin/gtags-cscope.vim ]; then 
-#    mv ./gtags-cscope.vim ~/.vim/plugin/
+#    cp ./gtags-cscope.vim ~/.vim/plugin/
 #else
-#    echo "appending gtags-cscope key maps into vim"
-#    cat ./gtags-cscope.vim >> ~/.vim/plugin/gtags-cscope.vim
+#    echo "has gtags-cscope.vim, nothing to do"
 #fi
 
 if [ ! -f ~/.vim/plugin/vimex.vim ]; then 
-    mv ./vimex.vim ~/.vim/plugin/
+    cp ./vimex.vim ~/.vim/plugin/
 else
-    echo "appending vimex key maps into vim"
-    cat ./vimex.vim >> ~/.vim/plugin/vimex.vim
+    echo "has vimex.vim, nothing to do" 
 fi
 
 # include us
 echo "source ~/.vim4gtags" >> vimrc
 
 if [ ! -f ~/.vimrc ]; then 
-    mv ./vimrc ~/.vimrc
+    cp ./vimrc ~/.vimrc
 else
     echo "appending settings into vim"
     cat ./vimrc >> ~/.vimrc
 fi
 
 if [ ! -f ~/.vim4gtags ]; then 
-    mv ./vim4gtags ~/.vim4gtags
+    cp ./vim4gtags ~/.vim4gtags
 else
-    echo "cover settings into vim4gtags"
-    cat ./vim4gtags >> ~/.vim4gtags
+    echo "has vim4gtags, nothing to do"
 fi
 
 # dash choked on 
@@ -71,16 +87,15 @@ if [ $? -ne 0 ]; then
         fi
     fi
 else
+    dest="6.6.0"
     # global - GNU GLOBAL 5.7.1
     ver="$(global --version | head -n 1)"
     # 5.7.1
     ver=${ver##* }
-    #if [ "$ver" < "6.6.5" ]; then 
-    if ! version_le "6.6.5" "$ver"; then 
-        echo "global version $ver is too low, 6.6.5 at least"
+    #if [ "$ver" < "$dest" ]; then 
+    if ! version_le "$dest" "$ver"; then 
+        echo "global version $ver is too low, $dest at least"
     fi 
 fi
-
-# gtags 
 
 echo "remember to do gtags under your project !!"

@@ -1,7 +1,7 @@
 #! /bin/sh
 
-mkdir vimsetup
-cd vimsetup
+mkdir setuptmp
+cd setuptmp
 
 #wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
 #wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
@@ -10,44 +10,63 @@ cd vimsetup
 #wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
 
 # -fsSL
-curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
-curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
-curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
-curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
-#curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/postfix.sh
-#curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/postfix_stat.sh
-curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
+if [ ! -f ../cscope_maps.vim ]; then 
+    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
+else
+    cp ../cscope_maps.vim ./
+fi 
+
+if [ ! -f ../vimex.vim ]; then 
+    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+else
+    cop ../vimex.vim ./
+fi 
+
+if [ ! -f ../vimrc ]; then 
+    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+else
+    cp ../vimrc ./
+fi
+
+if [ ! -f ../vim4cscope ]; then 
+    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
+else
+    cp ../vim4cscope ./
+fi
+
+if [ ! -f ../csmake.sh ]; then 
+    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
+else
+    cp ../csmake.sh ./
+fi
 
 mkdir -p ~/.vim/plugin/
 if [ ! -f ~/.vim/plugin/cscope_maps.vim ]; then 
-    mv ./cscope_maps.vim ~/.vim/plugin/
+    cp ./cscope_maps.vim ~/.vim/plugin/
 else
-    echo "appending cscope key maps into vim"
-    cat ./cscope_maps.vim >> ~/.vim/plugin/cscope_maps.vim
+    echo "has cscope_maps.vim, nothing to do"
 fi
 
 if [ ! -f ~/.vim/plugin/vimex.vim ]; then 
-    mv ./vimex.vim ~/.vim/plugin/
+    cp ./vimex.vim ~/.vim/plugin/
 else
-    echo "appending vimex key maps into vim"
-    cat ./vimex.vim >> ~/.vim/plugin/vimex.vim
+    echo "has vimex.vim, nothing to do"
 fi
 
 # include us
 echo "source ~/.vim4cscope" >> vimrc
 
 if [ ! -f ~/.vimrc ]; then 
-    mv ./vimrc ~/.vimrc
+    cp ./vimrc ~/.vimrc
 else
     echo "appending settings into vim"
     cat ./vimrc >> ~/.vimrc
 fi
 
 if [ ! -f ~/.vim4cscope ]; then 
-    mv ./vim4cscope ~/.vim4cscope
+    cp ./vim4cscope ~/.vim4cscope
 else
-    echo "cover settings into vim4cscope"
-    cat ./vim4cscope >> ~/.vim4cscope
+    echo "has vim4cscope, nothing to do"
 fi
 
 type cscope > /dev/null
@@ -70,6 +89,5 @@ if [ $? -ne 0 ]; then
 fi
 
 # cscope -Rbqk
-#brew install ctags
 
-echo "remember to export CSCOPE_ROOT=/path/to/project/root/dir/ in ~/.bash_profile !!"
+echo "remember to export CSCOPE_ROOT=/path/to/project/root/dir/ in ~/.bash_profile, and do cscope -Rbqk at your project root !"
