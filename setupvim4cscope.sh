@@ -69,18 +69,18 @@ else
     echo "has vim4cscope, nothing to do"
 fi
 
-type cscope > /dev/null
+type cscope > /dev/null 2>&1
 if [ $? -ne 0 ]; then 
     echo "cscope not exist, try installing..."
-    type brew > /dev/null
+    type brew > /dev/null 2>&1
     if [ $? -eq 0 ]; then 
         brew install cscope
     else 
-        type apt > /dev/null
+        type apt > /dev/null 2>&1
         if [ $? -eq 0 ]; then 
             apt install cscope
         else
-            type yum > /dev/null
+            type yum > /dev/null 2>&1
             if [ $? -eq 0 ]; then 
                 yum install cscope
             fi 

@@ -69,18 +69,18 @@ fi
 #   string compare: == -> =
 version_le() { str="$(echo $@ | tr ' ' '\n' | sort -V | head -n 1)"; test "$str" = "$1"; }
 
-type global > /dev/null
+type global > /dev/null 2>&1
 if [ $? -ne 0 ]; then 
     echo "global not exist, try installing..."
-    type brew > /dev/null
+    type brew > /dev/null 2>&1
     if [ $? -eq 0 ]; then 
         brew install global
     else 
-        type apt > /dev/null
+        type apt > /dev/null 2>&1
         if [ $? -eq 0 ]; then 
             apt install global
         else
-            type yum > /dev/null
+            type yum > /dev/null 2>&1
             if [ $? -eq 0 ]; then 
                 yum install global
             fi 
