@@ -76,15 +76,16 @@ if [ $? -ne 0 ]; then
     if [ $? -eq 0 ]; then 
         brew install global
     else 
-        type apt > /dev/null 2>&1
+        type yum > /dev/null 2>&1
         if [ $? -eq 0 ]; then 
-            apt install global
+            yum install global
         else
-            type yum > /dev/null 2>&1
+            # centos has apt but not a package manager
+            type apt > /dev/null 2>&1
             if [ $? -eq 0 ]; then 
-                yum install global
-            fi 
-        fi
+                apt install global
+            fi
+        fi 
     fi
 else
     dest="6.6.0"

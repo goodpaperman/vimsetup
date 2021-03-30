@@ -76,15 +76,16 @@ if [ $? -ne 0 ]; then
     if [ $? -eq 0 ]; then 
         brew install cscope
     else 
-        type apt > /dev/null 2>&1
+        type yum > /dev/null 2>&1
         if [ $? -eq 0 ]; then 
-            apt install cscope
+            yum install cscope
         else
-            type yum > /dev/null 2>&1
+            # centos has apt but not a package manager
+            type apt > /dev/null 2>&1
             if [ $? -eq 0 ]; then 
-                yum install cscope
-            fi 
-        fi
+                apt install cscope
+            fi
+        fi 
     fi
 fi
 
