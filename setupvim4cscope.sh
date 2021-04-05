@@ -59,8 +59,9 @@ echo "source ~/.vim4cscope" >> vimrc
 if [ ! -f ~/.vimrc ]; then 
     cp ./vimrc ~/.vimrc
 else
-    echo "appending settings into vim"
-    cat ./vimrc >> ~/.vimrc
+    echo "has vimrc, just source the vim4cscope at the tail"
+    #cat ./vimrc >> ~/.vimrc
+    echo "source ~/.vim4cscope" >> ~/.vimrc
 fi
 
 if [ ! -f ~/.vim4cscope ]; then 
