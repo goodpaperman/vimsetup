@@ -54,8 +54,9 @@ echo "source ~/.vim4gtags" >> vimrc
 if [ ! -f ~/.vimrc ]; then 
     cp ./vimrc ~/.vimrc
 else
-    echo "appending settings into vim"
-    cat ./vimrc >> ~/.vimrc
+    echo "has vimrc, just source the vim4gtags at the tail"
+    #cat ./vimrc >> ~/.vimrc
+    echo "source ~/.vim4gtags" >> ~/.vimrc
 fi
 
 if [ ! -f ~/.vim4gtags ]; then 
