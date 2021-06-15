@@ -70,6 +70,15 @@ if &diff
     highlight DiffChange ctermbg=235  ctermfg=103  guibg=#262626 guifg=#8787af cterm=reverse gui=reverse
     " 差异的文字 "
     highlight DiffText ctermbg=235  ctermfg=208  guibg=#262626 guifg=#ff8700 cterm=reverse gui=reverse
+    " using alt+j/k to do diff views (mac)
+    "Ô :press Alt+j
+    "˚ :press Alt+k
+    :nmap Ô ]c
+    :nmap ˚ [c
+    " set both buffer wrap to see more code
+    ":windo set wrap
+    "au VimEnter * execute 'windo set wrap'
+    autocmd FilterWritePre * setlocal wrap< 
 endif
 
 set clipboard^=unamed,unamedplus
