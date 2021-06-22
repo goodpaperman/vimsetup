@@ -26,4 +26,4 @@ fi
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
 git config --global alias.d difftool
-echo "vimdiff now is the default diff tool, enjoying it !!"
+echo "vimdiff now is the default diff tool, typing 'git d' to enjoying it !!"
