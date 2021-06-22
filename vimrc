@@ -71,10 +71,15 @@ if &diff
     " 差异的文字 "
     highlight DiffText ctermbg=235  ctermfg=208  guibg=#262626 guifg=#ff8700 cterm=reverse gui=reverse
     " using alt+j/k to do diff views (mac)
-    "Ô :press Alt+j
-    "˚ :press Alt+k
-    :nmap Ô ]c
-    :nmap ˚ [c
+    if has("mac")
+        "Ô :press Alt+j
+        "˚ :press Alt+k
+        :nmap Ô ]c
+        :nmap ˚ [c
+    else
+        :nmap j ]c
+        :nmap k [c
+    endif
     " set both buffer wrap to see more code
     ":windo set wrap
     "au VimEnter * execute 'windo set wrap'
