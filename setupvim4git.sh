@@ -43,7 +43,7 @@ if [ $use_bc -eq 1 ]; then
     sudo chmod ugo+x /usr/local/bin/extdiff
     git config --global diff.external extdiff
     git config --global merge.tool extmerge
-    git config --global mergetool.extmerge.cmd "extmerge \"\$LOCAL\" \"\$BASE\" \"\$REMOTE\" \"\$MERGED\""
+    git config --global mergetool.extmerge.cmd "extmerge \"\$LOCAL\" \"\$REMOTE\" \"\$BASE\" \"\$MERGED\""
     git config --global mergetool.extmerge.trustExitCode false
     echo "beyond compare now is the default diff/merge tool, typing 'git diff/mergetool' to enjoying it !!"
 else
