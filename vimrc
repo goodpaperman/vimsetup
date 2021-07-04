@@ -77,7 +77,8 @@ if &diff
         :nmap Ô ]c
         :nmap ˚ [c
     else
-        :nmap j ]c
+        ":nmap a   :echo "ALT-a pressed"<cr>
+        :nmap j ]c   " the real key order for ^[j is ctrl+v,alt+j
         :nmap k [c
     endif
     " set both buffer wrap to see more code
