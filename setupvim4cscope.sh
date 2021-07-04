@@ -3,39 +3,58 @@
 mkdir setuptmp
 cd setuptmp
 
-#wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
-#wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
-#wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
-#wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
-#wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
-
-# -fsSL
+# if we have wget, use it first, then try curl -fsSL
 if [ ! -f ../cscope_maps.vim ]; then 
-    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
+    type wget >/dev/null 2>&1
+    if [ $? -eq 0 ]; then 
+        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
+    else
+        curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
+    fi
 else
     cp ../cscope_maps.vim ./
 fi 
 
 if [ ! -f ../vimex.vim ]; then 
-    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+    type wget >/dev/null 2>&1
+    if [ $? -eq 0 ]; then 
+        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+    else
+        curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+    fi
 else
-    cop ../vimex.vim ./
+    cp ../vimex.vim ./
 fi 
 
 if [ ! -f ../vimrc ]; then 
-    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+    type wget >/dev/null 2>&1
+    if [ $? -eq 0 ]; then 
+        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+    else
+        curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+    fi
 else
     cp ../vimrc ./
 fi
 
 if [ ! -f ../vim4cscope ]; then 
-    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
+    type wget >/dev/null 2>&1
+    if [ $? -eq 0 ]; then 
+        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
+    else
+        curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
+    fi
 else
     cp ../vim4cscope ./
 fi
 
 if [ ! -f ../csmake.sh ]; then 
-    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
+    type wget >/dev/null 2>&1
+    if [ $? -eq 0 ]; then 
+        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
+    else
+        curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
+    fi
 else
     cp ../csmake.sh ./
 fi
