@@ -4,7 +4,12 @@ mkdir setuptmp
 cd setuptmp
 
 if [ ! -f ../gtags.vim ]; then 
-    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
+    type wget >/dev/null 2>&1
+    if [ $? -eq 0 ]; then 
+        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
+    else
+        curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
+    fi
 else 
     cp ../gtags.vim ./
 fi 
@@ -12,19 +17,34 @@ fi
 #curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags-cscope.vim
 
 if [ ! -f ../vimex.vim ]; then 
-    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+    type wget >/dev/null 2>&1
+    if [ $? -eq 0 ]; then 
+        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+    else
+        curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+    fi
 else
     cp ../vimex.vim ./
 fi 
 
 if [ ! -f ../vimrc ]; then 
-    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+    type wget >/dev/null 2>&1
+    if [ $? -eq 0 ]; then 
+        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+    else
+        curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+    fi
 else
     cp ../vimrc ./
 fi
 
 if [ ! -f ../vim4gtags ]; then 
-    curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
+    type wget >/dev/null 2>&1
+    if [ $? -eq 0 ]; then 
+        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
+    else
+        curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
+    fi
 else
     cp ../vim4gtags ./
 fi
@@ -35,12 +55,6 @@ if [ ! -f ~/.vim/plugin/gtags.vim ]; then
 else
     echo "has gtags.vim, nothing to do"
 fi
-
-#if [ ! -f ~/.vim/plugin/gtags-cscope.vim ]; then 
-#    cp ./gtags-cscope.vim ~/.vim/plugin/
-#else
-#    echo "has gtags-cscope.vim, nothing to do"
-#fi
 
 if [ ! -f ~/.vim/plugin/vimex.vim ]; then 
     cp ./vimex.vim ~/.vim/plugin/
