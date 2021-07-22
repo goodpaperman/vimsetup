@@ -24,10 +24,12 @@ fi
 if [ -f ~/.bash_profile ]; then 
     echo "has bash_profile, just source the bash_m at the tail"
     echo "source ~/.bash_m" >> ~/.bash_profile
-else if [ -f ~/.bashrc ]; then 
+elif [ -f ~/.bashrc ]; then 
     echo "has bashrc, just source the bash_m at the tail"
     echo "source ~/.bash_m" >> ~/.bashrc
 else 
     echo "no bash_profile or bashrc, create bashrc"
     echo "source ~/.bash_m" >> ~/.bashrc
 fi
+
+echo "setup done! now source ~/.bash_profile or ~/.bashrc to take effect"
