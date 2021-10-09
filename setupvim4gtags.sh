@@ -6,7 +6,7 @@ cd setuptmp
 if [ ! -f ../gtags.vim ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/gtags.vim
     fi
@@ -19,7 +19,7 @@ fi
 if [ ! -f ../vimex.vim ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
     fi
@@ -30,7 +30,7 @@ fi
 if [ ! -f ../vimrc ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
     fi
@@ -41,7 +41,7 @@ fi
 if [ ! -f ../vim4gtags ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4gtags
     fi

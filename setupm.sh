@@ -6,7 +6,7 @@ cd setuptmp
 if [ ! -f ../m.sh ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/m.sh
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/m.sh
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/m.sh
     fi

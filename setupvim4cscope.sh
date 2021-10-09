@@ -7,7 +7,7 @@ cd setuptmp
 if [ ! -f ../cscope_maps.vim ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/cscope_maps.vim
     fi
@@ -18,7 +18,7 @@ fi
 if [ ! -f ../vimex.vim ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimex.vim
     fi
@@ -29,7 +29,7 @@ fi
 if [ ! -f ../vimrc ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vimrc
     fi
@@ -40,7 +40,7 @@ fi
 if [ ! -f ../vim4cscope ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/vim4cscope
     fi
@@ -51,7 +51,7 @@ fi
 if [ ! -f ../csmake.sh ]; then 
     type wget >/dev/null 2>&1
     if [ $? -eq 0 ]; then 
-        wget https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
+        wget --no-check-certificate https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
     else
         curl -sO https://raw.githubusercontent.com/goodpaperman/vimsetup/main/csmake.sh
     fi
