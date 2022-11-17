@@ -61,7 +61,8 @@ set statusline=\ %<%F\ [%p%%]
 " 用空格键来开关折叠
 
 if &diff
-    "set diffopt+=iwhite
+    set diffopt-=internal
+    set diffopt+=iwhite
     " 新增的行 "
     highlight DiffAdd ctermbg=235  ctermfg=108  guibg=#262626 guifg=#87af87 cterm=reverse gui=reverse
     " 删除的行 "
